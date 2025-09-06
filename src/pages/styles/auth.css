@@ -1,0 +1,103 @@
+.authContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* ✅ Softer background */
+  background: linear-gradient(135deg, #e3f2f9, #eef2f3); 
+  padding: 20px;
+}
+
+.authForm {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.authForm:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.authForm h1,
+.authForm h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+
+  /* ✅ Warm gradient text */
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.authForm .row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.authForm .row label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.authForm .row input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  background: #fdfdfd;
+}
+
+.authForm .row input:focus {
+  border: 1px solid #ff6a00;
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.15);
+}
+
+.authForm .submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.authForm .submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+}
+
+.authForm .resend {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.authForm .resend span {
+  color: #ff6a00;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.authForm .resend span:hover {
+  color: #ee0979;
+}

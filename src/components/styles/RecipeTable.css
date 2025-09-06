@@ -1,0 +1,77 @@
+.recipe-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.recipe-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.recipe-table th,
+.recipe-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.recipe-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.recipe-img {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+}
+
+.delete-btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: #ff4d4d;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #d93636;
+}
+.addRecipeBtn {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-top: 8px;
+  background-color: #4cafef; /* Soft blue */
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.addRecipeBtn:hover {
+  background-color: #2196f3; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+.addRecipeBtn:active {
+  background-color: #1976d2; /* Pressed state */
+  transform: scale(0.98);
+}

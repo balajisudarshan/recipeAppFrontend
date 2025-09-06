@@ -1,0 +1,58 @@
+.addRecipeContainer {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.formTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.addRecipe {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.addRecipe input,
+.addRecipe textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.addRecipe input:focus,
+.addRecipe textarea:focus {
+  border-color: #4cafef;
+}
+
+.addRecipe textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.submitBtn {
+  background: #4cafef;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitBtn:hover {
+  background: #2196f3;
+  transform: scale(1.05);
+}

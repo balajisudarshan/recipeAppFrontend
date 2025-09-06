@@ -1,0 +1,76 @@
+.detailed-recipe {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.detailed-recipe h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.detailed-recipe .creator {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.detailed-recipe img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.detailed-recipe .description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.detailed-recipe h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.detailed-recipe ul {
+  list-style: disc inside;
+  margin-bottom: 25px;
+  padding-left: 10px;
+}
+
+.detailed-recipe li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: #fafafa;
+}
+
+.detailed-recipe .likes {
+  font-size: 1rem;
+  color: #e63946;
+  font-weight: bold;
+  
+}
+
+.detailed-recipe .like-btn {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.detailed-recipe .like-btn:hover {
+  background: #d62828;
+}
