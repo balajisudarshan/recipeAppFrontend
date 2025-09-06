@@ -10,6 +10,7 @@ const AddRecipe = () => {
     description: "",
     ingredients: "",
     image: "",
+    foodType: "veg",
   });
 
   const handleChange = (e) => {
@@ -81,7 +82,16 @@ const AddRecipe = () => {
           value={formData.image}
           onChange={handleChange}
         />
-
+        <label className="foodTypeLabel">Food Type</label>
+        <select
+          name="foodType"
+          value={formData.foodType}
+          onChange={handleChange}
+          required
+        >
+          <option value="veg">🥗 Veg</option>
+          <option value="non-veg">🍗 Non-Veg</option>
+        </select>
         <button type="submit" className="submitBtn">
           Add Recipe
         </button>

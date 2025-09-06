@@ -155,6 +155,28 @@
   background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
   animation: shimmer 1.5s infinite;
 }
+.filter-container {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.filter-container select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.food-type {
+  font-weight: bold;
+  margin: 5px 0;
+  color: #2e7d32; /* green for veg */
+}
+
+.food-type:contains("non-veg") {
+  color: #c62828; /* red for non-veg */
+}
 
 @keyframes shimmer {
   100% {
