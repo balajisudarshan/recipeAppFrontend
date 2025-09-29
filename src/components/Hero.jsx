@@ -1,18 +1,35 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import heroImg from '../assets/heroimg.jpg';
 import './styles/Hero.css';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const [isLoggedIn,setIsLoggedIn] = useState(false)
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    if(token){
+      setIsLoggedIn(true)
+    }else{
+      setIsLoggedIn(false)
+    }
+  },[])
   const navigate = useNavigate()
 
   const handleRegisterClick = ()=>{
-    const token = localStorage.getItem("token")
-    if(token){
+    // const token = localStorage.getItem("token")
+    // if(token){
+    //   navigate('/allRecipes')
+    // }else{
+    //   navigate('/signUp')
+    // }
+
+    if(isLoggedIn){
       navigate('/allRecipes')
     }else{
       navigate('/signUp')
     }
+
+
   }
   return (
     <section className="heroContainer">
@@ -22,7 +39,7 @@ const Hero = () => {
           Explore a world of culinary delights with our curated recipes.
           From appetizers to desserts, find inspiration for every meal.
         </p>
-        <button className='registerBtn' onClick={handleRegisterClick}>Register to Add your Own Recipe</button>
+        <button className='registerBtn' onClick={handleRegisterClick}>{isLoggedIn?"Add your Own Recipe":"Register to Add your Own Recipe"}</button>
        
           {/* <div className="searchWrap">
             <input type="text" className="exploreInput" placeholder="Search for recipes..." />

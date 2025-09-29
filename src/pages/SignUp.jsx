@@ -61,6 +61,7 @@ const SignUp = () => {
         type: 'error',
         message: error.response?.data?.message || 'Error during signup',
       })
+      
       console.error('Error during signup:', error)
     } finally {
       setLoading(false)
