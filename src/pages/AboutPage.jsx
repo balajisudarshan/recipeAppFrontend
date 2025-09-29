@@ -17,7 +17,7 @@ const AboutPage = () => {
             <div className="about-support">
                 <h2 className="support-title">💖 Support DishCovery</h2>
                 <p className="support-text">
-                    We’re just getting started, and every bit of support helps us move faster. 
+                    We’re just getting started, and every bit of support helps us move faster.
                     With your contribution, we can:
                 </p>
                 <ul className="support-list">
@@ -26,17 +26,10 @@ const AboutPage = () => {
                     <li>🌍 Keep the platform free and accessible for everyone</li>
                 </ul>
                 <p className="support-text">
-                    If you believe in DishCovery, you can support us by contributing below. 
+                    If you believe in DishCovery, you can support us by contributing below.
                     Every contribution, big or small, makes a difference. 🙌
                 </p>
-                <a
-                    href="buymeacoffee.com/balajisudarshan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="support-button"
-                >
-                    ❤️ Donate / Support Us
-                </a>
+                <a href="https://www.buymeacoffee.com/balajisudarshan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=balajisudarshan&button_colour=FF5F5F&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
             </div>
 
             <div className="about-author">
