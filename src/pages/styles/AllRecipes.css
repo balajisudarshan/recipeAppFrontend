@@ -156,6 +156,11 @@ body {
 @media (max-width: 768px) {
   .recipes-title { font-size: 2rem; }
   .recipe-card { min-width: 200px; }
+  .search-wrapper{
+    display: flex;
+    align-items: center;
+    width: 60%;
+  }
 }
 
 @media (max-width: 480px) {
