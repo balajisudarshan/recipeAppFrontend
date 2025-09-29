@@ -39,12 +39,21 @@ const SignUp = () => {
         fullName,
       })
 
-      setAlert({ type: 'success', message: res.data.message || 'Signup successful!' })
+      setAlert({
+        type: 'success',
+        message: res.data.message || 'Signup successful!',
+      })
 
-      localStorage.setItem('signUpEmail', email)
+      // Save token & user info
+      localStorage.setItem('token', res.data.token)
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ username, email, fullName })
+      )
 
+      // Redirect after short delay
       setTimeout(() => {
-        navigate('/verify-otp')
+        navigate('/') // Redirect to homepage or dashboard
       }, 1500)
     } catch (error) {
       setAlert({
