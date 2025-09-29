@@ -75,13 +75,13 @@ const AddRecipe = () => {
           required
         />
 
-        <input
+        {/* <input
           type="text"
           name="image"
           placeholder="Image URL (optional)"
           value={formData.image}
           onChange={handleChange}
-        />
+        /> */}
         <label className="foodTypeLabel">Food Type</label>
         <select
           name="foodType"
