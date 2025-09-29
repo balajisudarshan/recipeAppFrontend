@@ -30,7 +30,7 @@ const AboutPage = () => {
                     Every contribution, big or small, makes a difference. 🙌
                 </p>
                 <a
-                    href="https://buymeacoffee.com/balajisudarshan" 
+                    href="buymeacoffee.com/balajisudarshan"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="support-button"
