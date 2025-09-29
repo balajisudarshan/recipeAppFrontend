@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './styles/auth.css'
 import { useNavigate } from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
 const Login = ({ setIsLoggedIn, setUsername }) => {
   const ApiUrl = import.meta.env.VITE_BACKEND_API_URI
   const [email, setEmail] = useState('')
@@ -81,6 +81,7 @@ const Login = ({ setIsLoggedIn, setUsername }) => {
         <button type="submit" className="submit-btn" disabled={loading}>
           {loading ? 'Logging in...' : 'Login'}
         </button>
+        <p>Didnt had a Account <Link to='/signUp'>Register Here</Link></p>
       </form>
     </div>
   )

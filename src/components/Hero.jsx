@@ -1,8 +1,19 @@
 import React from 'react';
 import heroImg from '../assets/heroimg.jpg';
 import './styles/Hero.css';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate()
+
+  const handleRegisterClick = ()=>{
+    const token = localStorage.getItem("token")
+    if(token){
+      navigate('/allRecipes')
+    }else{
+      navigate('/signUp')
+    }
+  }
   return (
     <section className="heroContainer">
       <div className="hero-left">
@@ -11,6 +22,7 @@ const Hero = () => {
           Explore a world of culinary delights with our curated recipes.
           From appetizers to desserts, find inspiration for every meal.
         </p>
+        <button className='registerBtn' onClick={handleRegisterClick}>Register to Add your Own Recipe</button>
        
           {/* <div className="searchWrap">
             <input type="text" className="exploreInput" placeholder="Search for recipes..." />
@@ -24,7 +36,7 @@ const Hero = () => {
             </ul>
           </div> */}
           {/* <button className="exploreButton">Search</button> */}
-
+        
           
         
       </div>

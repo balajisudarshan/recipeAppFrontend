@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './styles/auth.css'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const SignUp = () => {
   const ApiUrl = import.meta.env.VITE_BACKEND_API_URI
@@ -129,6 +130,7 @@ const SignUp = () => {
         <button type="submit" className="submit-btn" disabled={loading}>
           {loading ? 'Signing you up...' : 'Sign Up'}
         </button>
+        <p>Already Registered?  <Link to='/login'>Login Here</Link></p>
       </form>
     </div>
   )

@@ -42,7 +42,7 @@
   width: 60%;
 }
 
-.exploreButton {
+.exploreButton,.registerBtn{
   background: #ff6347;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -99,5 +99,8 @@ li{
   }
   .hero-left p{
     padding: 1rem;
+  }
+  .registerBtn{
+    margin-bottom: 20px;
   }
 }
