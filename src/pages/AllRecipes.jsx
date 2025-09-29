@@ -3,7 +3,8 @@ import axios from "axios";
 import "./styles/AllRecipes.css";
 import { Link } from "react-router-dom";
 import { FaHeart, FaRegClock, FaSearch, FaFilter } from "react-icons/fa";
-import Navbar from "../components/Navbar"; // Assuming you have a Navbar component
+// import Navbar from "../components/Navbar"; // Assuming you have a Navbar component
+// import NavBar from "../components/NavBar";
 
 const AllRecipes = () => {
   const ApiUrl = import.meta.env.VITE_BACKEND_API_URI;
@@ -42,8 +43,7 @@ const AllRecipes = () => {
 
   return (
     <div className="recipes-page-container">
-      {/* Assuming a Navbar component */}
-      {/* <Navbar />  */}
+      
 
       <header className="recipes-header">
         <h1 className="recipes-title">Explore All Recipes <span className="chef-hat">👨‍🍳</span></h1>
