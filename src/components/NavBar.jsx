@@ -42,7 +42,7 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn, username, setUsername }) => {
           </>
         ) : (
           <>
-            <Link to ='/dashboard' className="welcome-text"> {username}</Link>
+            <Link to ='/dashboard' className="welcome-text"> Dashboard</Link>
             <button className="logout-btn" onClick={handleLogout}>Logout</button>
 
           </>
