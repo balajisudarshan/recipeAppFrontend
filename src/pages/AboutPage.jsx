@@ -14,6 +14,31 @@ const AboutPage = () => {
                 👩‍🍳 Post your favorite recipes, ❤️ like others' creations, and 📖 learn new dishes every day.
             </p>
 
+            <div className="about-support">
+                <h2 className="support-title">💖 Support DishCovery</h2>
+                <p className="support-text">
+                    We’re just getting started, and every bit of support helps us move faster. 
+                    With your contribution, we can:
+                </p>
+                <ul className="support-list">
+                    <li>🚀 Add new features and improvements</li>
+                    <li>📱 Build a mobile app for wider access</li>
+                    <li>🌍 Keep the platform free and accessible for everyone</li>
+                </ul>
+                <p className="support-text">
+                    If you believe in DishCovery, you can support us by contributing below. 
+                    Every contribution, big or small, makes a difference. 🙌
+                </p>
+                <a
+                    href="https://your-donation-link.com" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="support-button"
+                >
+                    ❤️ Donate / Support Us
+                </a>
+            </div>
+
             <div className="about-author">
                 <h2 className="author-title">👨‍💻 Project by Balaji</h2>
                 <p className="author-text">
@@ -24,7 +49,6 @@ const AboutPage = () => {
                     href="https://balajisudarshan.netlify.app"
                     target="_blank"
                     rel="noopener noreferrer"
-
                     className="portfolio-link"
                 >
                     🌐 Visit My Portfolio

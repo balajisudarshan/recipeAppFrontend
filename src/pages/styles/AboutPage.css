@@ -38,3 +38,50 @@
 .portfolio-link:hover {
   background: #e65c2c;
 }
+.about-support {
+  margin: 40px 0;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff9f9;
+  border: 1px solid #ffd6d6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.support-title {
+  font-size: 1.8rem;
+  color: #e63946;
+  margin-bottom: 12px;
+}
+
+.support-text {
+  font-size: 1rem;
+  color: #444;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.support-list {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 16px;
+  padding-left: 20px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.support-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff5f6d, #ff9966);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.support-button:hover {
+  background: linear-gradient(135deg, #ff9966, #ff5f6d);
+  transform: scale(1.05);
+}

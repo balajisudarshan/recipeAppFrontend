@@ -105,7 +105,7 @@ const AllRecipes = () => {
                   <span className="recipe-likes">
                     <FaHeart className="icon" /> {item.likes.length}
                   </span>
-                  {/* Assuming item.prepTime exists on your data model */}
+                  
                   {item.prepTime && (
                     <span className="recipe-time">
                       <FaRegClock className="icon" /> {item.prepTime}

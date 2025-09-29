@@ -81,6 +81,22 @@
   transition: background 0.3s ease;
   margin-left: 10px;
 }
-.detailed-recipe .like-btn:hover {
-  background: #d62828;
+.like-btn {
+  padding: 10px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.like-btn:hover {
+  background-color: #ffd6d6;
+}
+
+.like-btn.liked {
+  background-color: #ff5f6d;
+  color: white;
+}
+
