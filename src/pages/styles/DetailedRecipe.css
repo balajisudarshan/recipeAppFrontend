@@ -70,7 +70,17 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
+.detailed-recipe .report-btn {
+  background: #fae20a;
+  color: #070707;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 10px;
+}
 .detailed-recipe .like-btn:hover {
   background: #d62828;
 }

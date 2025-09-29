@@ -45,6 +45,7 @@ const DetailedRecipe = () => {
 
       <p className="likes">❤️ {recipe.likes.length} Likes</p>
       <button className="like-btn">Like</button>
+      <button className="report-btn">Report</button>
     </div>
   );
 };
