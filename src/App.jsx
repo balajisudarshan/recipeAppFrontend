@@ -11,6 +11,8 @@ import Dashboard from './pages/Dashboard'
 import AddRecipe from './pages/AddRecipe'
 import DetailedRecipe from './pages/DetailedRecipe'
 import AboutPage from './pages/AboutPage'
+import FilterByCuisine from './components/FilterByCuisine'
+import FilteredRecipe from './components/FilteredRecipe'
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [username, setUsername] = useState('')
@@ -39,6 +41,7 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/addRecipe' element={<AddRecipe/>}/>
         <Route path='/recipes/:id' element={<DetailedRecipe/>}/>
+        <Route path='/cuisine/:cuisineName' element={<FilteredRecipe/>}/>
         <Route path='/about' element={<AboutPage/>}/>
       </Routes>
     </>

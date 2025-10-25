@@ -5,6 +5,8 @@
   padding: 1rem 2rem;
   background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  z-index: 1000;
 }
 
 .logo {
@@ -22,6 +24,7 @@
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .links a {
@@ -31,15 +34,21 @@
   color: #444;
   font-family: 'Roboto', sans-serif;
   transition: color 0.3s ease;
+  padding: 0.5rem 0;
 }
 
 .links a:hover {
   color: #ff7043;
 }
 
+.welcome-text {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
 .logout-btn {
   border: none;
-  padding: 10px 16px;
+  padding: 10px 18px;
   font-size: 1rem;
   font-weight: 500;
   background: #ff7043;
@@ -58,35 +67,80 @@
   font-size: 1.8rem;
   cursor: pointer;
   color: #2c3e50;
+  padding: 0.5rem;
 }
 
-/* 📱 Mobile styles */
 @media (max-width: 768px) {
-  .links {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    flex-direction: column;
-    background: #ffffff;
-    
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 1000;
-
-    /* animation */
-    max-height: 0;
-    overflow: hidden;
-    padding: 0;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+  .navbar {
+    padding: 0.75rem 1rem;
   }
 
-  .links.active {
-    max-height: 300px;
-    padding: 1rem;
-    border: 1px solid #ddd;
+  .logo {
+    font-size: 1.4rem;
   }
 
   .menu-toggle {
     display: block;
+  }
+
+  .links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .links.active {
+    max-height: 500px;
+    padding: 1rem 1.5rem;
+  }
+
+  .links a,
+  .links .logout-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.1rem;
+  }
+
+  .links a:last-child,
+  .links .logout-btn {
+    border-bottom: none;
+  }
+
+  .links .logout-btn {
+    margin-top: 0.5rem;
+    width: auto;
+    align-self: flex-start;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .links.active {
+    padding: 0.75rem 1rem;
+  }
+
+  .links a,
+  .links .logout-btn {
+    padding: 0.75rem 0;
+    font-size: 1rem;
   }
 }

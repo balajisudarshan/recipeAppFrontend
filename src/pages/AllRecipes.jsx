@@ -3,6 +3,9 @@ import axios from "axios";
 import "./styles/AllRecipes.css";
 import { Link } from "react-router-dom";
 import { FaHeart, FaRegClock, FaSearch } from "react-icons/fa";
+import FilterByCuisine from "../components/FilterByCuisine";
+import RecipeCard from "../components/RecipeCard";
+import { LifeLine } from "react-loading-indicators";
 
 const AllRecipes = () => {
   const ApiUrl = import.meta.env.VITE_BACKEND_API_URI;
@@ -50,7 +53,7 @@ const AllRecipes = () => {
       </header>
 
       {loading ? (
-        <p className="loading-text">Loading recipes...</p>
+        <center><LifeLine color="#ff9500" size="medium" text="fetching recipes for you" textColor="" /></center>
       ) : (
         <>
           {["veg", "non-veg"].map((type) => {
@@ -63,31 +66,7 @@ const AllRecipes = () => {
                 </h2>
                 <div className="section-carousel">
                   {filtered.map((item) => (
-                    <Link
-                      to={`/recipes/${item._id}`}
-                      key={item._id}
-                      className="recipe-card"
-                    >
-                      <div className="recipe-image-wrapper">
-                        <img src={item.image} alt={item.title} />
-                        <span className={`food-type-tag ${item.foodType}`}>
-                          {item.foodType === "veg" ? "Veg" : "Non-Veg"}
-                        </span>
-                      </div>
-                      <div className="recipe-content">
-                        <h3>{item.title}</h3>
-                        <div className="recipe-meta">
-                          <span className="likes">
-                            <FaHeart className="icon" /> {item.likes.length}
-                          </span>
-                          {item.prepTime && (
-                            <span className="time">
-                              <FaRegClock className="icon" /> {item.prepTime}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </Link>
+                    <RecipeCard key={item._id} item={item} />
                   ))}
                 </div>
               </section>
@@ -95,6 +74,7 @@ const AllRecipes = () => {
           })}
         </>
       )}
+      <FilterByCuisine />
     </div>
   );
 };
