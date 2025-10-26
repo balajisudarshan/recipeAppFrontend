@@ -19,7 +19,6 @@ const AddRecipe = () => {
   });
 
   const [imageFile, setImageFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,17 +29,7 @@ const AddRecipe = () => {
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setImageFile(file);
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setImagePreview(null);
-    }
+    setImageFile(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
@@ -70,7 +59,6 @@ const AddRecipe = () => {
       console.log(response.data);
       setFormData({ title: "", description: "", ingredients: "", foodType: "veg", cuisine: "" });
       setImageFile(null);
-      setImagePreview(null);
     } catch (error) {
       console.error("Error adding recipe:", error);
       alert("❌ Failed to add recipe");
@@ -99,12 +87,6 @@ const AddRecipe = () => {
 
         <label className="foodTypeLabel">Upload Image</label>
         <input type="file" accept="image/*" onChange={handleFileChange} />
-        
-        {imagePreview && (
-          <div className="imagePreviewContainer">
-            <img src={imagePreview} alt="Recipe preview" className="previewImage" />
-          </div>
-        )}
 
         <button type="submit" className="submitBtn">Add Recipe</button>
       </form>

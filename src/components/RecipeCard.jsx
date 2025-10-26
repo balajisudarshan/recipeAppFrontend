@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaHeart, FaRegClock } from 'react-icons/fa'
 
 const RecipeCard = ({ item }) => {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_IMG_URI
     return (
         <Link
             to={`/recipes/${item._id}`}
@@ -13,7 +14,7 @@ const RecipeCard = ({ item }) => {
                     src={
                         item.image.startsWith("http")
                             ? item.image                     
-                            : `http://localhost:3001${item.image}` 
+                            : `${BACKEND_URL}${item.image.startsWith('/') ? '' : '/'}${item.image}` 
                     }
                     alt={item.title}
                 />

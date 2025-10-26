@@ -3,6 +3,8 @@ import "./styles/RecipeTable.css";
 import { Link } from "react-router-dom";
 
 const RecipeTable = ({ recipes, onDelete }) => {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_IMG_URI;
+
   return (
     <div className="recipe-table-container">
       <table className="recipe-table">
@@ -20,19 +22,21 @@ const RecipeTable = ({ recipes, onDelete }) => {
             recipes.map((recipe) => (
               <tr key={recipe._id}>
                 <td>
-                <img
+                  <img
                     className="recipe-img"
                     src={
-                        recipe.image.startsWith("http")
-                            ? recipe.image                     
-                            : `http://localhost:3001${recipe.image}` 
+                      recipe.image.startsWith("http")
+                        ? recipe.image
+                        : `${BACKEND_URL}${recipe.image.startsWith('/') ? '' : '/'}${recipe.image}`
                     }
                     alt={recipe.title}
-                />
+                  />
                 </td>
-                <td><Link to={`/recipes/${recipe._id}`} className="recipe-link">
-                  {recipe.title}
-                </Link></td>
+                <td>
+                  <Link to={`/recipes/${recipe._id}`} className="recipe-link">
+                    {recipe.title}
+                  </Link>
+                </td>
                 <td>{recipe.creatorName || "Unknown"}</td>
                 <td>❤️ {recipe.likes?.length || 0}</td>
                 <td>
@@ -54,7 +58,9 @@ const RecipeTable = ({ recipes, onDelete }) => {
           )}
           <tr>
             <td colSpan="5">
-              <Link to='/addRecipe' className="addRecipeBtn">Add Recipe</Link>
+              <Link to="/addRecipe" className="addRecipeBtn">
+                Add Recipe
+              </Link>
             </td>
           </tr>
         </tbody>
