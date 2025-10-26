@@ -9,7 +9,14 @@ const RecipeCard = ({ item }) => {
             className="recipe-card"
         >
             <div className="recipe-image-wrapper">
-                <img src={item.image} alt={item.title} />
+                <img
+                    src={
+                        item.image.startsWith("http")
+                            ? item.image                     
+                            : `http://localhost:3001${item.image}` 
+                    }
+                    alt={item.title}
+                />
                 <span className={`food-type-tag ${item.foodType}`}>
                     {item.foodType === "veg" ? "Veg" : "Non-Veg"}
                 </span>

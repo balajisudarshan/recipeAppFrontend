@@ -20,11 +20,15 @@ const RecipeTable = ({ recipes, onDelete }) => {
             recipes.map((recipe) => (
               <tr key={recipe._id}>
                 <td>
-                  <img
-                    src={recipe.image}
-                    alt={recipe.title}
+                <img
                     className="recipe-img"
-                  />
+                    src={
+                        recipe.image.startsWith("http")
+                            ? recipe.image                     
+                            : `http://localhost:3001${recipe.image}` 
+                    }
+                    alt={recipe.title}
+                />
                 </td>
                 <td><Link to={`/recipes/${recipe._id}`} className="recipe-link">
                   {recipe.title}

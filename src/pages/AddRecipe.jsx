@@ -4,14 +4,22 @@ import "./styles/addRecipe.css";
 
 const AddRecipe = () => {
   const ApiUrl = import.meta.env.VITE_BACKEND_API_URI;
+  const cuisines = [
+    "Punjabi","Andhra","Tamil","Kerala","Gujarati","Rajasthani",
+    "Mughlai","Bengali","North Indian","South Indian",
+    "Continental","Chinese","Italian","Fast Food","Other"
+  ];
 
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     ingredients: "",
-    image: "",
     foodType: "veg",
+    cuisine:"",
   });
+
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,25 +29,48 @@ const AddRecipe = () => {
     }));
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImagePreview(null);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
+      const data = new FormData();
+      data.append("title", formData.title);
+      data.append("description", formData.description);
+      data.append("ingredients", formData.ingredients);
+      data.append("foodType", formData.foodType);
+      data.append("cuisine", formData.cuisine);
+      if (imageFile) data.append("image", imageFile);
+
       const response = await axios.post(
         `${ApiUrl}/recipe/addRecipe`,
-        {
-          ...formData,
-          ingredients: formData.ingredients.split(",").map((i) => i.trim()),
-        },
+        data,
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
+
       alert("✅ Recipe added successfully!");
       console.log(response.data);
-      setFormData({ title: "", description: "", ingredients: "", image: "" });
+      setFormData({ title: "", description: "", ingredients: "", foodType: "veg", cuisine: "" });
+      setImageFile(null);
+      setImagePreview(null);
     } catch (error) {
       console.error("Error adding recipe:", error);
       alert("❌ Failed to add recipe");
@@ -50,51 +81,32 @@ const AddRecipe = () => {
     <div className="addRecipeContainer">
       <h1 className="formTitle">➕ Add a New Recipe</h1>
       <form className="addRecipe" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Recipe Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="title" placeholder="Recipe Title" value={formData.title} onChange={handleChange} required />
+        <textarea name="description" placeholder="Recipe Description" value={formData.description} onChange={handleChange} required />
+        <textarea name="ingredients" placeholder="Ingredients (comma separated)" value={formData.ingredients} onChange={handleChange} required />
 
-        <textarea
-          name="description"
-          placeholder="Recipe Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        />
-
-        <textarea
-          name="ingredients"
-          placeholder="Ingredients (comma separated)"
-          value={formData.ingredients}
-          onChange={handleChange}
-          required
-        />
-
-        {/* <input
-          type="text"
-          name="image"
-          placeholder="Image URL (optional)"
-          value={formData.image}
-          onChange={handleChange}
-        /> */}
         <label className="foodTypeLabel">Food Type</label>
-        <select
-          name="foodType"
-          value={formData.foodType}
-          onChange={handleChange}
-          required
-        >
+        <select name="foodType" value={formData.foodType} onChange={handleChange} required>
           <option value="veg">🥗 Veg</option>
           <option value="non-veg">🍗 Non-Veg</option>
         </select>
-        <button type="submit" className="submitBtn">
-          Add Recipe
-        </button>
+
+        <label className="foodTypeLabel">Cuisine</label>
+        <select name="cuisine" value={formData.cuisine} onChange={handleChange} required>
+          <option value="">Select Cuisine</option>
+          {cuisines.map((item) => (<option key={item} value={item}>{item}</option>))}
+        </select>
+
+        <label className="foodTypeLabel">Upload Image</label>
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+        
+        {imagePreview && (
+          <div className="imagePreviewContainer">
+            <img src={imagePreview} alt="Recipe preview" className="previewImage" />
+          </div>
+        )}
+
+        <button type="submit" className="submitBtn">Add Recipe</button>
       </form>
     </div>
   );
