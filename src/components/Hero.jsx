@@ -4,18 +4,18 @@ import './styles/Hero.css';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
-  useEffect(()=>{
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  useEffect(() => {
     const token = localStorage.getItem("token")
-    if(token){
+    if (token) {
       setIsLoggedIn(true)
-    }else{
+    } else {
       setIsLoggedIn(false)
     }
-  },[])
+  }, [])
   const navigate = useNavigate()
 
-  const handleRegisterClick = ()=>{
+  const handleRegisterClick = () => {
     // const token = localStorage.getItem("token")
     // if(token){
     //   navigate('/allRecipes')
@@ -23,9 +23,9 @@ const Hero = () => {
     //   navigate('/signUp')
     // }
 
-    if(isLoggedIn){
+    if (isLoggedIn) {
       navigate('/allRecipes')
-    }else{
+    } else {
       navigate('/signUp')
     }
 
@@ -34,14 +34,20 @@ const Hero = () => {
   return (
     <section className="heroContainer">
       <div className="hero-left">
-        <h1>Discover <span>Delicious</span> Recipes</h1>
+
+        <h1>DishCoveryy -- Discover <span>Delicious</span> Recipes</h1>
+        <p>
+          Dishcoveryy is a recipe website where you can explore a world of culinary delights,
+          from appetizers to desserts, and share your own recipes with others.
+        </p>
+
         <p>
           Explore a world of culinary delights with our curated recipes.
           From appetizers to desserts, find inspiration for every meal.
         </p>
-        <button className='registerBtn' onClick={handleRegisterClick}>{isLoggedIn?"Add your Own Recipe":"Register to Add your Own Recipe"}</button>
-       
-          {/* <div className="searchWrap">
+        <button className='registerBtn' onClick={handleRegisterClick}>{isLoggedIn ? "Add your Own Recipe" : "Register to Add your Own Recipe"}</button>
+
+        {/* <div className="searchWrap">
             <input type="text" className="exploreInput" placeholder="Search for recipes..." />
             <ul className='dropdown'>
               <li>Italian</li>
@@ -52,10 +58,10 @@ const Hero = () => {
               <li>Italian</li>
             </ul>
           </div> */}
-          {/* <button className="exploreButton">Search</button> */}
-        
-          
-        
+        {/* <button className="exploreButton">Search</button> */}
+
+
+
       </div>
       <div className="hero-right">
         <img src={heroImg} alt="Delicious food" />
